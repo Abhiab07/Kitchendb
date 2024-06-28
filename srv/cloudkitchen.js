@@ -24,7 +24,7 @@ const productapi = await cds.connect.to('API_PRODUCT_SRV');
     this.before('READ','ProductLocal', async req => {
         const {Products, ProductLocal} = this.entities;
         console.log("Fired Read");
-        qry = SELECT.from(Products).columns([{ref:['Product']},{ref:['ProductType']},{ref:['ProductGroup']},{ref:['BaseUnit']},{ref:['to_Description'],expand:['*']}]).limit(1000);
+        qry = SELECT.from(Products).columns([{ref:['Product']},{ref:['ProductType']},{ref:['ProductGroup']},{ref:['BaseUnit']},{ref:['to_Description'],expand:['*']}]);
 
         let res = await productapi.run(qry);
         res.forEach((element) => {
@@ -48,5 +48,19 @@ const productapi = await cds.connect.to('API_PRODUCT_SRV');
         console.log(req.data);
         updqry = UPDATE(ProductDescription).data({"ProductDescription":req.data.ProductDescription}).where({Product: req.data.Product, Language: 'EN'})
         await productapi.run(updqry);
+    });
+
+    this.before('CREATE','ProductLocal', async req => {
+        const {Products, ProductLocal, ProductDescription} = this.entities;
+        console.log(req.data);
+        
+        inqry = INSERT.into(Products).entries({"Product":req.data.Product,"ProductType":req.data.ProductType,"BaseUnit":req.data.BaseUnit,
+            to_Description:[{
+                "Product":req.data.Product,
+                "Language":'EN',
+                "ProductDescription":req.data.ProductDescription
+            }]
+        })
+        await productapi.run(inqry);
     });
 })
