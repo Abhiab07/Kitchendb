@@ -9,8 +9,7 @@
 		"esbenp.prettier-vscode",
 		"mechatroner.rainbow-csv",
 		"qwtel.sqlite-viewer",
-		"humao.rest-client",
-		"sdras.night-owl"
+		"humao.rest-client"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [

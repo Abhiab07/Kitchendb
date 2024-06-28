@@ -35,3 +35,4 @@ entity ProductLocal: managed {
     @title: 'Product Description'
     ProductDescription: String(40);
 }
+

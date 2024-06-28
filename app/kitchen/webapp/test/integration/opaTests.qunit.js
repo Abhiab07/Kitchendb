@@ -1,15 +1,15 @@
 sap.ui.require(
     [
         'sap/fe/test/JourneyRunner',
-        'kitchen/kitchen/test/integration/FirstJourney',
-		'kitchen/kitchen/test/integration/pages/KitchenList',
-		'kitchen/kitchen/test/integration/pages/KitchenObjectPage'
+        'com/satinfotech/cloudapps/kitchen/test/integration/FirstJourney',
+		'com/satinfotech/cloudapps/kitchen/test/integration/pages/KitchenList',
+		'com/satinfotech/cloudapps/kitchen/test/integration/pages/KitchenObjectPage'
     ],
     function(JourneyRunner, opaJourney, KitchenList, KitchenObjectPage) {
         'use strict';
         var JourneyRunner = new JourneyRunner({
             // start index.html in web folder
-            launchUrl: sap.ui.require.toUrl('kitchen/kitchen') + '/index.html'
+            launchUrl: sap.ui.require.toUrl('com/satinfotech/cloudapps/kitchen') + '/index.html'
         });
 
        

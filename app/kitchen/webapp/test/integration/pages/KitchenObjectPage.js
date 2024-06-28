@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
 
     return new ObjectPage(
         {
-            appId: 'kitchen.kitchen',
+            appId: 'com.satinfotech.cloudapps.kitchen',
             componentId: 'KitchenObjectPage',
             contextPath: '/Kitchen'
         },

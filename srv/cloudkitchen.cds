@@ -1,3 +1,4 @@
+
 using {com.satinfotech.cloudapps as ClKitchen} from '../db/schema';
 using {API_PRODUCT_SRV as productapi} from './external/API_PRODUCT_SRV';
 
@@ -23,10 +24,7 @@ service CloudKitchen @(requires: 'authenticated-user') {
     ProductDescription
   }
 
-
   entity ProductLocal as projection on ClKitchen.ProductLocal;
-
-
 }
 
 annotate CloudKitchen.Kitchen with @odata.draft.enabled;

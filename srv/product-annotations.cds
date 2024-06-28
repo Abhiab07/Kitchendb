@@ -1,3 +1,4 @@
+
 using {CloudKitchen.ProductLocal as Product} from './cloudkitchen';
 
 annotate Product with @(
@@ -35,11 +36,6 @@ annotate Product with @(
                 $Type : 'UI.DataField',         
                 Value : Product,
             },
-            // {
-            //     $Type : 'UI.DataField',
-                
-            //     Value : product_type,
-            // },
             {
                 $Type : 'UI.DataField',
                 
@@ -50,12 +46,6 @@ annotate Product with @(
                 
                 Value : ProductGroup,
             },
-            
-            // {
-            //     $Type : 'UI.DataField',
-                
-            //     Value : base_unit,
-            // },
             {
                 $Type : 'UI.DataField',                
                 Value : ProductType,
@@ -67,6 +57,7 @@ annotate Product with @(
             
         ]
     },
+
     UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',

@@ -1,5 +1,5 @@
 {
-  "name": "cloudkitchen",
+  "name": "CloudKitchen",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -14,13 +14,19 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1",
+    "@cap-js/sqlite": "^1.6.0",
     "@sap/cds-dk": "^7.9.1",
-    "@sap/ux-specification": "^1.120.10"
+    "@sap/ux-specification": "^1.120.13",
+    "rimraf": "^3.0.2"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-kitchen": "cds watch --open kitchen/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-kitchen": "cds watch --open kitchen/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy CloudKitchen --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-productlocal": "cds watch --open productlocal/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -53,6 +59,10 @@
     }
   },
   "sapux": [
-    "app/kitchen"
+    "app/kitchen",
+    "app/kitchen",
+    "app/kitchen",
+    "app/project1",
+    "app/productlocal"
   ]
 }
